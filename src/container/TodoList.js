@@ -1,12 +1,13 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {archiveTodo, deleteTodo} from "../actions/index";
+import {findGIFThunk} from "../actions";
 
 const TodoList = (StateAndDispatchProps) => {
     if (StateAndDispatchProps.todoListItems.length > 0) {
         return (
             <ul>{StateAndDispatchProps.todoListItems.map((item) => {
-                if (item.id >= 0) {
+                if (item.id || item.id === 0) {
                     return (
                         <li key={item.id}>
                             <span style={{textDecoration: item.isArchived ? 'line-through' : 'none'}}>{item.text}</span>
@@ -17,16 +18,21 @@ const TodoList = (StateAndDispatchProps) => {
             })}</ul>
         );
     } else {
+        StateAndDispatchProps.onEmptyTodoList('');
         return (<p>You have nothing to do.</p>)
     }
 
 };
 
-const mapStateToProps = (state) => ({todoListItems: state.todoReducer});
+const mapStateToProps = (state) => ({
+    todoListItems: state.todos,
+    imageUrl: state.imageUrl,
+});
 
 const matchDispatchToProps = (dispatch) => ({
     onArchiveClick: id => dispatch(archiveTodo(id)),
-    onDeleteClick: id => dispatch(deleteTodo(id))
+    onDeleteClick: id => dispatch(deleteTodo(id)),
+    onEmptyTodoList: (text) => dispatch(findGIFThunk(text)),
 });
 
 export default connect(

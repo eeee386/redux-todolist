@@ -1,6 +1,7 @@
 import React from 'react';
 import {addTodo} from "../actions/index";
 import {connect} from "react-redux";
+import {findGIFThunk} from "../actions";
 
 const AddTodo = ({dispatch}) => {
 
@@ -15,6 +16,7 @@ const AddTodo = ({dispatch}) => {
         }
 
         dispatch(addTodo(input.value));
+        dispatch(findGIFThunk(input.value));
         input.value = ''
     };
 

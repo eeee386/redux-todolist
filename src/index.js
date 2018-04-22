@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import App from './Components/App';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'react-redux'
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import {rootReducer} from './reducers/rootReducer';
 import {persistReducer, persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import {PersistGate} from 'redux-persist/integration/react';
+import thunk from 'redux-thunk'
 
 
 const persistConfig = {
@@ -17,7 +18,7 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-let store = createStore(persistedReducer);
+let store = createStore(persistedReducer, applyMiddleware(thunk));
 let persistor = persistStore(store);
 
 
