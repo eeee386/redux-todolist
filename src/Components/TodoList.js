@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
-import {archiveTodo, deleteTodo} from "../actions/index";
-import {findGIFThunk} from "../actions";
+import {archiveTodo, deleteTodo} from "../actions/todoActions";
+import {findGIFThunk} from "../actions/todoActions";
 
 const TodoList = (StateAndDispatchProps) => {
     if (StateAndDispatchProps.todoListItems.length > 0) {
@@ -26,7 +26,6 @@ const TodoList = (StateAndDispatchProps) => {
 
 const mapStateToProps = (state) => ({
     todoListItems: state.todos,
-    imageUrl: state.imageUrl,
 });
 
 const matchDispatchToProps = (dispatch) => ({

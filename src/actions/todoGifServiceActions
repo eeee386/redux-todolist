@@ -1,29 +1,9 @@
-import axios from 'axios/index';
-
-let nextTodoId = 0;
-
-export const addTodo = (text) => ({
-    type: 'Add_Todo',
-    id: nextTodoId++,
-    isArchived: false,
-    text: text
-});
-
-export const archiveTodo = (id) => ({
-    type: 'Archive_Todo',
-    id: id,
-    isArchived: true,
-});
-
-export const deleteTodo = (id) => ({
-    id: id,
-    type: 'Delete_Todo'
-});
+import axios from "axios/index";
 
 export const findGIFAction = (newImageUrl) => ({
-        type: 'Find_GIF',
-        imageUrl: newImageUrl
-    });
+    type: 'Find_GIF',
+    imageUrl: newImageUrl
+});
 
 let findGIFRequest = async (text) => {
     let newImageUrl;
@@ -51,7 +31,6 @@ export const findGIFThunk = (text) => {
             (error)=> {
                 console.log(error);
             }
-
         )
     }
 

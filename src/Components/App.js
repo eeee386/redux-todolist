@@ -1,7 +1,8 @@
 import React from 'react';
-import TodoList from '../container/TodoList';
-import AddTodo from '../container/AddTodo';
+import TodoList from './TodoList';
+import AddTodo from './AddTodo';
 import GIFComponent from './GIFComponent';
+import {connect} from "react-redux";
 
 const App = (state) => {
     return (
@@ -14,4 +15,4 @@ const App = (state) => {
     );
   };
 
-export default App;
+export default connect()(App);

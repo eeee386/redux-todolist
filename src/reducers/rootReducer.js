@@ -1,9 +1,10 @@
 import {combineReducers} from 'redux';
 import {todoReducer} from './todoReducer';
-import {GIFServiceReducer} from "./GIFServiceReducer";
+import {todoGIFServiceReducer} from "./todoGIFServiceReducer";
+
 
 
 export const rootReducer = combineReducers({
     todos: todoReducer,
-    imageUrl: GIFServiceReducer
+    imageUrl: todoGIFServiceReducer
 });
