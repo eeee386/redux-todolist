@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {archiveTodo, deleteTodo} from "../actions/todoActions";
-import {findGIFThunk} from "../actions/todoActions";
+import {findGIFThunk} from "../actions/todoGIFServiceActions";
 
 const TodoList = (StateAndDispatchProps) => {
     if (StateAndDispatchProps.todoListItems.length > 0) {

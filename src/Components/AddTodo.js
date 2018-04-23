@@ -1,7 +1,7 @@
 import React from 'react';
 import {addTodo} from "../actions/todoActions";
 import {connect} from "react-redux";
-import {findGIFThunk} from "../actions/todoActions";
+import {findGIFThunk} from "../actions/todoGIFServiceActions";
 
 const AddTodo = ({dispatch}) => {
 

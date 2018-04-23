@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {findGIFThunk} from "../actions/todoGifServiceActions";
 import {connect} from "react-redux";
+import {findGIFThunk} from "../actions/todoGIFServiceActions";
 
 class GIFComponent extends Component {
 
