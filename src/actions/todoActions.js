@@ -10,7 +10,6 @@ export const addTodo = (text) => ({
 export const archiveTodo = (id) => ({
     type: 'Archive_Todo',
     id: id,
-    isArchived: true,
 });
 
 export const deleteTodo = (id) => ({

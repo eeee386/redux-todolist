@@ -7,7 +7,7 @@ import {createStore, applyMiddleware} from 'redux'
 import {rootReducer} from './reducers/rootReducer';
 import {persistReducer, persistStore} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
-import {PersistGate} from 'redux-persist/integration/react';
+import {PersistGate} from 'redux-persist/lib/integration/react';
 import thunk from 'redux-thunk'
 import {logger} from './middlewares/logger';
 import {crashReporter} from "./middlewares/crashReporter";

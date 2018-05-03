@@ -3,16 +3,16 @@ import {connect} from "react-redux";
 import {archiveTodo, deleteTodo} from "../actions/todoActions";
 import {findGIFThunk} from "../actions/todoGIFServiceActions";
 
-const TodoList = (StateAndDispatchProps) => {
+export const TodoList = (StateAndDispatchProps) => {
     if (StateAndDispatchProps.todoListItems.length > 0) {
         return (
             <ul>{StateAndDispatchProps.todoListItems.map((item) => {
                 if (item.id || item.id === 0) {
                     return (
                         <li key={item.id}>
-                            <span style={{textDecoration: item.isArchived ? 'line-through' : 'none'}}>{item.text}</span>
-                            <button onClick={() => StateAndDispatchProps.onArchiveClick(item.id)}>Archive</button>
-                            <button onClick={() => StateAndDispatchProps.onDeleteClick(item.id)}>Delete</button>
+                            <span style={{textDecoration: item.isArchived ? 'line-through' : 'none'}} id={"span-" + item.id}>{item.text}</span>
+                            <button onClick={() => StateAndDispatchProps.onArchiveClick(item.id)} id={"Archbutton-" + item.id}>Archive</button>
+                            <button onClick={() => StateAndDispatchProps.onDeleteClick(item.id)} id={"Delbutton-" + item.id}>Delete</button>
                         </li>)
                 }
             })}</ul>

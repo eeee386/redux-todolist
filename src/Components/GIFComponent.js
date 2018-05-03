@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {findGIFThunk} from "../actions/todoGIFServiceActions";
 
-class GIFComponent extends Component {
+export class GIFComponent extends Component {
 
     componentWillMount() {
         this.props.findGIF('Todo');

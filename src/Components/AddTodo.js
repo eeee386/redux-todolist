@@ -3,7 +3,7 @@ import {addTodo} from "../actions/todoActions";
 import {connect} from "react-redux";
 import {findGIFThunk} from "../actions/todoGIFServiceActions";
 
-const AddTodo = ({dispatch}) => {
+export const AddTodo = ({dispatch}) => {
 
     let input;
     let searchTerm;
@@ -15,8 +15,8 @@ const AddTodo = ({dispatch}) => {
             return
         }
 
-        dispatch(addTodo(input.value));
-        dispatch(findGIFThunk(input.value));
+        dispatch.addTodo(input.value);
+        dispatch.findGIFThunk(input.value);
         input.value = ''
     };
 
@@ -24,16 +24,20 @@ const AddTodo = ({dispatch}) => {
         <form onSubmit={handleSubmit}>
             <label>
                 Add a new thing to-do:
-                <input value={searchTerm} ref={node => input = node}/>
+                <input ref={node => input = node}/>
             </label>
             <button type="submit">
                 Add To-do
             </button>
-            <img src={imageUrl ? imageUrl : ''} alt=''/>
         </form>
 
     )
 };
 
-export default connect()(AddTodo);
+const matchDispatchToProps = (dispatch) => ({
+    addTodo: text => dispatch(addTodo(text)),
+    findGIFThunk: text => dispatch(findGIFThunk(text))
+});
+
+export default connect(null, matchDispatchToProps)(AddTodo);
 

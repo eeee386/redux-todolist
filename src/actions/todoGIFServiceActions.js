@@ -5,7 +5,7 @@ export const findGIFAction = (newImageUrl) => ({
     imageUrl: newImageUrl
 });
 
-let findGIFRequest = async (text) => {
+export const findGIFRequest = async (text) => {
     let newImageUrl;
     await axios.get(`https://api.giphy.com/v1/gifs/search?api_key=5af1dpHDnUoSnLBVS6HllccaUIjg4mAW&q=${text}&limit=1&offset=0&rating=G&lang=en`)
         .then(function (response) {
